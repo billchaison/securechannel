@@ -64,7 +64,7 @@ The workstation initiates the request.  Note the Sequence No `6e9e03a812b04528`,
 The output is the decrypted sequence number `0000000280000000`<br />
 3. Concatenate the sequence number to itself to get the IV that will be used to decrypt the stub data `00000002800000000000000280000000`<br />
 4. Derive a decryption key by taking the session key and XORing every byte with `0xf0`.  The following bash command will accomplish this.<br />
-`printf "%16x%16x\n" $((0x3bde5fef94210c21^0xf0f0f0f0f0f0f0f0)) $((0x1159c347e10c0189^0xf0f0f0f0f0f0f0f0))`
+`printf "%016x%016x\n" $((0x3bde5fef94210c21^0xf0f0f0f0f0f0f0f0)) $((0x1159c347e10c0189^0xf0f0f0f0f0f0f0f0))`
 The output is the decryption key `cb2eaf1f64d1fcd1e1a933b711fcf179`<br />
 5. The encrypted stub data in this frame is as follows:<br />
 ```
@@ -120,7 +120,7 @@ The decryption algorithm is identical to what appears in figure 5, except that t
 The output is the decrypted sequence number `0000000300000000`<br />
 3. Concatenate the sequence number to itself to get the IV that will be used to decrypt the stub data `00000003000000000000000300000000`<br />
 4. Derive a decryption key by taking the session key and XORing every byte with `0xf0`.  The following bash command will accomplish this.<br />
-`printf "%16x%16x\n" $((0x3bde5fef94210c21^0xf0f0f0f0f0f0f0f0)) $((0x1159c347e10c0189^0xf0f0f0f0f0f0f0f0))`
+`printf "%016x%016x\n" $((0x3bde5fef94210c21^0xf0f0f0f0f0f0f0f0)) $((0x1159c347e10c0189^0xf0f0f0f0f0f0f0f0))`
 The output is the decryption key `cb2eaf1f64d1fcd1e1a933b711fcf179`<br />
 5. The encrypted stub data in this frame is as follows:<br />
 ```
